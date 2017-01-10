@@ -1,0 +1,23 @@
+table thead tr th, table tbody tr td{
+    text-align: center !important;
+}
+
+.form-group, .form-group input{
+    width:100% !important;
+}
+
+.form-group label.control-label{
+    margin-top: 5px !important;
+}
+
+.nav.child_menu.show{
+    display: block;
+}
+
+.excel_format{
+    float: right !important;
+    color: #d9534f !important;
+    text-decoration: underline !important;
+    font-size: 14px !important;
+    font-style: italic !important;
+}

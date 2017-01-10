@@ -1,0 +1,163 @@
+<!-- page content -->
+<div class="right_col" role="main" ng-cloak style="min-height: 700px;">
+    <!-- notifications -->
+    <div class="alert alert-success" role="alert"  ng-if="success">
+        <p> <strong>Notification!</strong> {{success}} </p>
+    </div>
+
+    <div class="alert alert-danger" role="alert" ng-if="error">
+        <p>  <strong>Oh snap!</strong> {{error}} </p>
+    </div>
+    <!-- top tiles -->
+    <div class="row top_tiles">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="#/Groups">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-list"></i></div>
+                    <div class="count" ng-bind="Groups.length | number"></div>
+                    <h3>Total Groups</h3>
+                    <p>Show total count of registered groups.</p>
+                </div>
+            </a>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="#/Members">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-users"></i></div>
+                    <div class="count" ng-if="AllMembers" ng-bind="AllMembers.length | number"></div>
+                    <div class="count" ng-if="!AllMembers" ng-bind="AllMembers.length | number"></div>
+                    <h3>Total Members</h3>
+                    <p>Displays total number of members.</p>
+                </div>
+            </a>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <!-- <div class="icon"><i class="fa fa-money"></i></div> -->
+                <div class="count">&#8358; {{AccountBalance | number}}</div>
+                <h3>Co-operative Balance</h3>
+                <p>Shows the sum total of every users account balance.</p>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-list-ol"></i></div>
+                <div class="count">&#8358; {{Loans | number}}</div>
+                <h3>Total Loans</h3>
+                <p>Shows the total amount of loan requested.</p>
+            </div>
+        </div>
+    </div>
+    <!-- /top tiles -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Group List <small>List of all registered groups</small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table  class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>SUPERVISOR</th>
+                            <th>NO OF MEMBERS</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                        </thead>
+                        <tbody  ng-repeat="u in Groups">
+                            <tr>
+                            <td ng-bind="$index +1"></td>
+                            <td>{{u.name}}</td>
+                            <td>{{u.SuperAdmin}}</td>
+                            <td>{{u.members}}</td>
+                            <td>
+                                <a href="javascript:;" data-toggle="modal" ng-click="post(u.id, u, $index)" data-target="#edit_field">
+                                    <button class="btn-default btn-sm btn" ><i class="fa fa-pencil-square-o"></i>Edit</button>
+                                </a>
+                                <a href="#/Group/{{u.id}}">
+                                    <button class="btn-primary btn-sm btn" ><i class="fa fa-eye"></i> View Members</button>
+                                </a>
+                                <a href="javascript:;" data-toggle="modal" ng-click="delete(u.id, u, $index)" data-target="#delete_member">
+                                    <button class="btn-danger btn-sm btn" >
+                                        <i class="fa fa-trash-o"></i> Delete
+                                        <img class="table-spinner group-{{$index}}" src="images/spinner.gif" alt="Deleting" style="display: none;">
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <img class="loading" src="images/loader.gif" alt="Loading" style="display: none;">
+                    <div class="pull-right">
+                        <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true"></dir-pagination-controls>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete_member" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Delete confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <!--<div class="alert alert-success" role="alert" ng-if="success">-->
+                    <!--<strong>Notification!</strong> {{success}}-->
+                <!--</div>-->
+                <!--<div class="alert alert-danger" role="alert" ng-if="error">-->
+                    <!--<p>  <strong>Oh snap!</strong> {{error}} </p>-->
+                <!--</div>-->
+
+                <h3>Are you sure you want to delete?</h3>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="deleteGroup()">Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="edit_field" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="newModalLabel">Edit Group Name</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="control-label col-md-6 col-sm-4 col-xs-12" for="supervisor-name">New Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="supervisor-name" class="form-control col-md-7 col-xs-12" ng-model="name" required>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="editField()">Confirm</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /page content -->
