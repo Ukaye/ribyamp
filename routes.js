@@ -15,12 +15,12 @@ var db            = require('./database');
 
 
 var Agent         = db.Agent;
-var user          = user,
-var Aggregator    = Aggregator,
-var Admin         = Admin,
-var Association   = Association,
-var Document      = Document,
-var Member        = Member;
+var user          = db.user;
+var Aggregator    = db.Aggregator;
+var Admin         = db.Admin;
+var Association   = db.Association;
+var Document      = db.Document;
+var Member        = db.Member;
 
 
 
