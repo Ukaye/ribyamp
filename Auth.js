@@ -63,7 +63,7 @@ passport.use('local-signup', new LocalStrategy({
 
       console.log(req.body)
 
-user.findOne({ 'Email' :  req.body.email }, function(err, user) {
+user.findOne({ 'email' :  req.body.email }, function(err, user) {
 
             if (err)
                 return done(err);
