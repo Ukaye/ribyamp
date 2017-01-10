@@ -1,0 +1,29 @@
+{
+  "name": "baamp",
+  "version": "1.0.0",
+  "description": "Agent Aggregators management platform",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "author": "Prince",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-flash": "latest",
+    "cookie-parser": "latest",
+    "cors": "^2.7.1",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-session": "latest",
+    "express3-handlebars": "latest",
+    "multer": "^0.1.8",
+    "nedb": "^1.8.0",
+    "nodemailer": "^2.7.0",
+    "nodemailer-express-handlebars": "^2.0.0",
+    "nodemailer-smtp-transport": "^2.7.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.79.0"
+  }
+}
