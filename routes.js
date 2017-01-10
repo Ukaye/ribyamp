@@ -41,23 +41,17 @@ module.exports = function(app,passport){
 
 app.get('/', function(req, res){
     
+res.render('Login',{info: req.flash('info')});
+    
+});
+
+app.get('/Admin', function(req, res){
+
+    
 res.render('index');
     
 });
 
-
-app.get('/Admin', function(req, res){
-	
-res.render('Admin');
-	
-});
-
-
-app.get('/Login', function(req, res){
-    
-res.render('Login',{info: req.flash('info')});
-    
-});
 
 
 
