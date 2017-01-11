@@ -31,7 +31,7 @@
             </a>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="#/agent">
+            <a href="#/member">
                 <div class="tile-stats">
                     <div class="icon"><i class="fa fa-users"></i></div>
                     <div class="count" ng-bind="members.length || 0"></div>
@@ -41,12 +41,14 @@
             </a>
         </div>
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-                <div class="icon"><i class="fa fa-list-ol"></i></div>
-                <div class="count">&#8358; {{Loans || 0}}</div>
-                <h3>Total Loans</h3>
-                <p>Shows the total amount of loan requested.</p>
-            </div>
+            <a href="#/transaction">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-list-ol"></i></div>
+                    <div class="count">&#8358; {{Loans || 0}}</div>
+                    <h3>Total Loans</h3>
+                    <p>Shows the total amount of loan requested.</p>
+                </div>
+            </a>
         </div>
     </div>
     <!-- /top tiles -->
