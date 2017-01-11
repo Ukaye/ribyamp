@@ -70,8 +70,7 @@ app.get('/agent', function(req, res){
 
 
 app.get('/success', function(req, res){
-    
-    switch (req.user.access) {
+    switch (parseInt(req.user.access)) {
     
         case 1:
             res.redirect('/boi');

@@ -53,15 +53,15 @@ passport.use('local-signup', new LocalStrategy({
     function(req, email, password, done) {
         User.findOne({email:req.body.email}, function (err, user) {
             if (user){
-                return done(null, user);
-            }
-            else {
                 if (user.password !== req.body.password){
                     return done(null, false, req.flash('info', 'Oops! Wrong password'));
                 }
                 else {
-                    return done(null, false, req.flash('info', 'Oops! User does not exist'));
+                    return done(null, user);
                 }
+            }
+            else {
+                return done(null, false, req.flash('info', 'Oops! User does not exist'));
             }
         });
     }));
