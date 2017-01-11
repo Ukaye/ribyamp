@@ -6,7 +6,7 @@ user:   {
     email:,
     phone:,
     password:,
-    role:(member|agent|association|aggregator|superadmin),
+    access:(1->boi|2->pmo|3->amo|4->aggregator|5->lead_aggregator|6->agent),
     created_time:,
     modified_time:
     }
@@ -32,7 +32,13 @@ association: {
 aggregator: {
     user_id:,
     region:(state),
-    type:(regular|lead),
+    company_name:,
+    company_address:,
+    created_by:
+    }
+lead_aggregator:{
+    user_id:,
+    region:(state),
     company_name:,
     company_address:,
     created_by:

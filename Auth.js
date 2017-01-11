@@ -1,7 +1,7 @@
 var LocalStrategy   = require('passport-local').Strategy;
 
 var db = require('./database');
-var user =  db.user;
+var User =  db.user;
 
 module.exports = function(passport) {
 
@@ -21,34 +21,25 @@ passport.use('local-signup', new LocalStrategy({
        passReqToCallback : true
    },
    function(req, email, password, done) {
-    console.log(req.body);
-
-       users.findOne({ 'Email' :  req.body.email }, function(err, user) {
-
-           if (err)
-               return done(err);
-
-
-            if (user==null) {
-
-              users.insert({
-                Email: req.body.email,
-             
-              });
-
-
-
-
-            var user=req.body;
-            return done(null, user);
-
-            } else {
-
-              return done(null, false, req.flash('signupMessage', 'User already exist'));
-
-            }
-
-        });
+       if (req.body && req.body.email){
+           User.findOne({email:req.body.email}, function (err, user) {
+               if (user){
+                   return done(null, false, req.flash('signupMessage', 'User already exist'));
+               }
+               else {
+                   var user = req.body;
+                   user.password = user.role;
+                   user.id = Math.round((Math.random() * 10000));
+                   user.created_time = call.Date(new Date);
+                   user.modified_time = call.Date(new Date);
+                   User.insert(user);
+                   return done(null, user);
+               }
+           });
+       }
+       else {
+           return done(null, false, req.flash('signupMessage', 'Required parameters not sent'));
+       }
 
     }));
 
@@ -60,28 +51,19 @@ passport.use('local-signup', new LocalStrategy({
       passReqToCallback : true
     },
     function(req, email, password, done) {
-
-      console.log(req.body)
-
-user.findOne({ 'email' :  req.body.email }, function(err, user) {
-
-            if (err)
-                return done(err);
-
-               if(!user)
-                return done(null, false, req.flash('info', 'Oops! User dsnt exist.'));
-
-        //    if (user.Email !== req.body.email)
-          //      return done(null, false, req.flash('loginMessage', 'No user found.'));
-            if (user.password !== req.body.password)
-                return done(null, false, req.flash('info', 'Oops! Wrong password.'));
-            return done(null, user);
-
-
+        User.findOne({email:req.body.email}, function (err, user) {
+            if (user){
+                return done(null, user);
+            }
+            else {
+                if (user.password !== req.body.password){
+                    return done(null, false, req.flash('info', 'Oops! Wrong password'));
+                }
+                else {
+                    return done(null, false, req.flash('info', 'Oops! User does not exist'));
+                }
+            }
         });
-        }
-
-    ));
-
-}
+    }));
+};
 

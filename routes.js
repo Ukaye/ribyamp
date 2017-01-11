@@ -122,15 +122,15 @@ app.get('/update', function(req, res){
 
 
 app.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/succes',
+  successRedirect : '/success',
   failureRedirect : '/',
   failureFlash : true
 }));
 
 
  app.post('/signup', passport.authenticate('local-signup', {
-   successRedirect : '/Admin',
-   failureRedirect : '/login',
+   successRedirect : '/login',
+   failureRedirect : '/signup',
    failureFlash : true
  }));
 
