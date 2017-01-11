@@ -2,7 +2,7 @@
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <h3>Member List <small>List of all registered members</small></h3>
+            <h3>Beneficiary List <small>List of all registered beneficiaries</small></h3>
         </div>
     </div>
     <div class="row">
@@ -29,29 +29,25 @@
                             <th>
                                 #
                             </th>
-                            <th ng-click="sort('Name')">
-                                FirstName
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='Name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('id')">
+                                Id
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
-                            <th ng-click="sort('LastName')">
-                                LastName
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='LastName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('firstname')">
+                                First Name
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='firstname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
-                            <th ng-click="sort('PhoneNumber')">
-                                PhoneNumber
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='PhoneNumber'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('lastname')">
+                                Last Name
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='lastname'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
-                            <th ng-click="sort('Role')">
-                                Role
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='created_time'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('phone')">
+                                Phone Number
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='phone'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
-                            <th ng-click="sort('Group')">
-                                Group
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='Group'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-                            </th>
-                             <th ng-click="sort('Balance')">
-                                Balance
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='Group'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('association')">
+                                Association
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='association'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
                             <th>
                                 Actions
@@ -61,21 +57,17 @@
                         <tbody>
                         <tr class="odd gradeX" dir-paginate="member in members|filter:search|itemsPerPage:pageSize">
                             <td ng-bind="$index +1"></td>
-                            <td ng-bind="member.Name"></td>
-                            <td ng-bind="member.LastName"></td>
-                            <td ng-bind="member.PhoneNumber"></td>
-                            <td ng-bind="member.Role"></td>
-                            <td ng-bind="member.Group"></td>
-                            <td ng-bind="member.Balance"></td>
+                            <td ng-bind="member.id"></td>
+                            <td ng-bind="member.firstname"></td>
+                            <td ng-bind="member.lastname"></td>
+                            <td ng-bind="member.phone"></td>
+                            <td ng-bind="member.association"></td>
                             <td>
 
                                 <a href="javascript:;" data-toggle="modal" ng-click="initEdit(member._id, member, $index,member)" data-target="#edit_field">
                                     <button class="btn-default btn-sm btn" ><i class="fa fa-pencil-square-o"></i>Edit</button>
                                 </a>
-                                <a href="#/Transaction/{{member._id}}"><span class="btn btn-sm btn-success"><i class="fa fa-eye"></i> View Transactions </span></a>
-                              
-                                <a href="javascript:;" ng-controller="MemberCtrl" ng-click="Fund(member.PhoneNumber)" data-toggle="modal" data-target="#Deposit_now"><span class="btn btn-sm btn-primary"><i class="fa fa-send"></i> Deposit </span></a>
-
+                                <!--<a href="#/Transaction/{{member._id}}"><span class="btn btn-sm btn-success"><i class="fa fa-eye"></i> View Transactions </span></a>-->
                                 <a href="javascript:;" data-toggle="modal" ng-click="initdeleteMember(member.Id, member, $index)" data-target="#delete_member">
                                     <button class="btn-danger btn-sm btn" >
                                         <i class="fa fa-trash-o"></i> Delete
@@ -161,10 +153,10 @@
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
-                                                <label for="group">Group * :</label>
-                                                <select id="group" class="form-control" ng-model="FormData.Group" >
-                                                    <option value="" disabled selected>Select Group</option>
-                                                    <option ng-repeat="Group in Groups">{{Group.name}}</option>
+                                                <label for="group">association * :</label>
+                                                <select id="group" class="form-control" ng-model="FormData.association" >
+                                                    <option value="" disabled selected>Select association</option>
+                                                    <option ng-repeat="association in Groups">{{association.name}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -202,10 +194,10 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label for="excel_group">Group * :</label>
+                                        <label for="excel_group">association * :</label>
                                         <select class="form-control" id="excel_group" >
-                                            <option value="0" selected disabled>Select a Group</option>
-                                            <option ng-repeat="Group in Groups">{{Group.name}}</option>
+                                            <option value="0" selected disabled>Select a association</option>
+                                            <option ng-repeat="association in Groups">{{association.name}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -323,55 +315,6 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-primary" ng-click="editField()">Confirm</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-
-
-<div id="Deposit_now" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="MemberCtrl">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Fund Account</h4>
-            </div>
-            <div class="modal-body">
-
-            <div class="alert alert-success" role="alert" ng-if="success">
-            <strong>Notification!</strong> {{success}}
-        </div>
-        <div class="alert alert-danger" role="alert" ng-if="error">
-            <p>  <strong>Oh snap!</strong> {{error}} </p>
-        </div>
-
-
-        <form class="form-inline" ng-if="stage2 == 1" >
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon">₦</div>
-                    <input type="number" class="form-control" placeholder="Amount" ng-model="amount ">
-                    <div class="input-group-addon">.00</div>
-                </div>
-
-            </div>
-
-        </form>
-        <div  ng-if="stage2 == 2">
-
-            <a href="{{link}}" target="_blank"> <button  type="submit" class="btn btn-primary">ATM Card/Kegow Walet</button> </a>
-        </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="cont(amount)">Continue with {{amount}}</button>
             </div>
 
         </div>

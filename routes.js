@@ -117,7 +117,6 @@ app.get('/update', function(req, res){
 
 
 
-
 app.post('/login', passport.authenticate('local-login', {
   successRedirect : '/succes',
   failureRedirect : '/',
@@ -130,6 +129,7 @@ app.post('/login', passport.authenticate('local-login', {
    failureRedirect : '/login',
    failureFlash : true
  }));
+
 
 
 app.get('/logout', function(req, res) {

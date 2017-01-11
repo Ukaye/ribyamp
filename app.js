@@ -11,6 +11,7 @@ require('./config')(app);
 
 require('./Auth')(passport);
 require('./routes')(app,passport);
+require('./Api')(app,passport);
 
 
 
