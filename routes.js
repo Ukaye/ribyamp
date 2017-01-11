@@ -65,6 +65,35 @@ app.get('/member', function(req, res){
 
 
 
+app.get('/succes', function(req, res){
+    
+    switch (req.user.access) {
+    
+        case 1:
+            res.redirect('/superadmin');
+            break;
+        case 2:
+              res.redirect('/superadmin');
+            break;
+        case 3:
+             res.redirect('/superadmin');
+              break;
+        case 4:
+        res.redirect('/aggregator');
+             break;
+        case 5:
+        res.redirect('/association');
+              break;
+         case 6:
+         res.redirect('/agent');
+              break;
+      
+       
+        }
+    
+});
+
+
 
 app.get('/update', function(req, res){
 
@@ -75,6 +104,7 @@ app.get('/update', function(req, res){
     email: 'prince@gmail.com',
     phone: 09050484751, 
     password: 'Des',
+    access  : 1,
     created_time: Date().now,
     modified_time:Date().now
     });
@@ -89,7 +119,7 @@ app.get('/update', function(req, res){
 
 
 app.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/Admin',
+  successRedirect : '/succes',
   failureRedirect : '/',
   failureFlash : true
 }));
