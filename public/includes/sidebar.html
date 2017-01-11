@@ -1,4 +1,4 @@
-<div class="col-md-3 left_col" ng-controller="SidebarCtrl">
+<div class="col-md-3 left_col" ng-controller="sidebarCtrl">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0; padding-left:10px;">
             <a href="#/" class="site_title">
@@ -29,8 +29,23 @@
                     <li ng-class="{ active: isActive('/')}">
                         <a href="#/"><i class="fa fa-home"></i> Dashboard </a>
                     </li>
-                    <li ng-class="{ active: isActive('/Settings')}">
-                        <a href="#/Settings"><i class="fa fa-cog"></i> Settings </a>
+                    <li ng-class="{ active: isActive('/aggregator')}">
+                        <a href="#/aggregator"><i class="fa fa-user-secret"></i> Aggregators </a>
+                    </li>
+                    <li ng-class="{ active: isActive('/agent')}">
+                        <a href="#/agent"><i class="fa fa-user-plus"></i> Agents </a>
+                    </li>
+                    <li ng-class="{ active: isActive('/association')}">
+                        <a href="#/association"><i class="fa fa-building "></i> Associations </a>
+                    </li>
+                    <li ng-class="{ active: isActive('/member')}">
+                        <a href="#/member"><i class="fa fa-users"></i> Beneficiaries </a>
+                    </li>
+                    <li ng-class="{ active: isActive('/transaction')}">
+                        <a href="#/transaction"><i class="fa fa-th-list"></i> Transactions </a>
+                    </li>
+                    <li ng-class="{ active: isActive('/settings')}">
+                        <a href="#/settings"><i class="fa fa-cog"></i> Settings </a>
                     </li>
                     <li class="nav-sm visible-small hidden-md hidden-lg visible-sm visible-xs" style="bottom: -50px !important;">
                         <a href="javascript:;"><img width="30" src="images/favicon.png" /></a>
@@ -51,3 +66,7 @@
         <!-- /menu footer buttons -->
     </div>
 </div>
+
+
+<!-- Custom Theme Scripts -->
+<script src="js/custom.min.js"></script>

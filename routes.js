@@ -40,16 +40,27 @@ var options = {
 module.exports = function(app,passport){
 
 app.get('/', function(req, res){
-    
-res.render('Login',{info: req.flash('info')});
-    
+    res.render('Login',{info: req.flash('info')});
 });
 
-app.get('/Admin', function(req, res){
+app.get('/superadmin', function(req, res){
+    res.render('superadmin');
+});
 
-    
-res.render('index');
-    
+app.get('/aggregator', function(req, res){
+    res.render('aggregator');
+});
+
+app.get('/association', function(req, res){
+    res.render('association');
+});
+
+app.get('/agent', function(req, res){
+    res.render('agent');
+});
+
+app.get('/member', function(req, res){
+    res.render('member');
 });
 
 

@@ -6,6 +6,7 @@ user:   {
     email:,
     phone:,
     password:,
+    role:(member|agent|association|aggregator|superadmin),
     created_time:,
     modified_time:
     }
@@ -22,6 +23,7 @@ agent:  {
 association: {
     name:,
     email:,
+    mou:(document_id);
     lga:,
     state:,
     created_by:,
