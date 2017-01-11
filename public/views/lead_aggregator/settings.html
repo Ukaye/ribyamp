@@ -1,0 +1,106 @@
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Settings <small>Options for settings and configurations.</small></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="col-lg-push-3 col-lg-6" style="margin-top:10px;">
+                        <div class="alert alert-success" role="alert" ng-if="success">
+                            <strong>Notification!</strong> {{success}}
+                        </div>
+                        <div class="alert alert-danger" role="alert" ng-if="error">
+                            <p>  <strong>Oh snap!</strong> {{error}} </p>
+                        </div>
+
+                        <form class="">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="first-name" type="text" class="form-control"  ng-model="FormData.Name" required>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="last-name" type="text" class="form-control" ng-model="FormData.LastName" required>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dob">Birth Date <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="dob" type="date" class="form-control" ng-model="FormData.Date" >
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address">Address <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="address" type="text" class="form-control" ng-model="FormData.Address" required>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                           
+                            <div class="form-group" ng-if="FormData.Company">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company">Company <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="company" type="text" class="form-control"  ng-model="FormData.Company" required>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-circle col-lg-4 col-lg-push-5" ng-click="submit(FormData)">Save <i class="fa fa-check"></i> </button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                        <form style="margin-top:40px;">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="old">Old Password <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="old" type="password" class="form-control"  ng-model="FormData.Current" required>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="new">New Password <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="new" type="password" class="form-control" ng-model="FormData.New" required>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="repeat">Repeat Password <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input id="repeat" type="password" class="form-control" ng-model="FormData.NewAgain" required>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success col-lg-4 col-lg-push-5" ng-click="Reset(FormData)">Reset Password <i class="fa fa-check"></i> </button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->

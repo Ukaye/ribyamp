@@ -43,24 +43,28 @@ app.get('/', function(req, res){
     res.render('Login',{info: req.flash('info')});
 });
 
-app.get('/superadmin', function(req, res){
-    res.render('superadmin');
+app.get('/boi', function(req, res){
+    res.render('boi');
+});
+
+app.get('/pmo', function(req, res){
+    res.render('pm');
+});
+
+app.get('/amo', function(req, res){
+    res.render('amo');
+});
+
+app.get('/lead_aggregator', function(req, res){
+    res.render('lead_aggregator');
 });
 
 app.get('/aggregator', function(req, res){
     res.render('aggregator');
 });
 
-app.get('/association', function(req, res){
-    res.render('association');
-});
-
 app.get('/agent', function(req, res){
     res.render('agent');
-});
-
-app.get('/member', function(req, res){
-    res.render('member');
 });
 
 

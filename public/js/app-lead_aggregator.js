@@ -6,31 +6,31 @@ BAAMP.config(['$routeProvider',  function ($routeProvider) {
 
     $routeProvider.
     when('/', {
-        templateUrl: '../views/amo/dashboard.html',
+        templateUrl: '../views/lead_aggregator/dashboard.html',
         controller: 'dashboardCtrl'
     }).
     when('/agent', {
-        templateUrl: '../views/amo/agent.html',
+        templateUrl: '../views/lead_aggregator/agent.html',
         controller: 'agentCtrl'
     }).
-    when('/aggregator', {
-        templateUrl: '../views/amo/aggregator.html',
-        controller: 'aggregatorCtrl'
+    when('/lead_aggregator', {
+        templateUrl: '../views/lead_aggregator/lead_aggregator.html',
+        controller: 'lead_aggregatorCtrl'
     }).
     when('/association', {
-        templateUrl: '../views/amo/association.html',
+        templateUrl: '../views/lead_aggregator/association.html',
         controller: 'associationCtrl'
     }).
     when('/member', {
-        templateUrl: '../views/amo/member.html',
+        templateUrl: '../views/lead_aggregator/member.html',
         controller: 'memberCtrl'
     }).
     when('/settings', {
-        templateUrl: '../views/amo/settings.html',
+        templateUrl: '../views/lead_aggregator/settings.html',
         controller: 'settingsCtrl'
     }).
     when('/transaction', {
-        templateUrl: '../views/amo/transaction.html',
+        templateUrl: '../views/lead_aggregator/transaction.html',
         controller: 'transactionCtrl'
     }).
     otherwise({

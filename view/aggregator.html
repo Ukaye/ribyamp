@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en"  ng-app = "BAAMP">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="ïcon" href="images/logo.png" type="image/x-icon">
+
+    <title>Riby | Administration </title>
+
+    <!-- Bootstrap -->
+    <link href="plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <!--<link href="plugins/nprogress/nprogress.css" rel="stylesheet">-->
+    <!-- iCheck -->
+    <link href="plugins/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="plugins/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- PNotify -->
+    <link href="plugins/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="plugins/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="plugins/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/general.css" rel="stylesheet">
+
+</head>
+
+<body class="nav-md footer_fixed">
+    <div class="container body">
+      <div class="main_container">
+        <div ng-include="'includes/sidebar.html'"></div>
+        <div ng-include="'includes/header.html'"></div>
+        <div ng-view> </div>
+        <div ng-include="'includes/footer.html'"></div>
+      </div>
+    </div>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<!-- jQuery -->
+    <script src="plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+    <!-- FastClick -->
+    <script src="plugins/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="plugins/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="plugins/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="plugins/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="plugins/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="plugins/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="plugins/Flot/jquery.flot.js"></script>
+    <script src="plugins/Flot/jquery.flot.pie.js"></script>
+    <script src="plugins/Flot/jquery.flot.time.js"></script>
+    <script src="plugins/Flot/jquery.flot.stack.js"></script>
+    <script src="plugins/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="plugins/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="plugins/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="plugins/flot.curvedlines/curvedLines.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="plugins/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="plugins/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- PNotify -->
+    <script src="plugins/pnotify/dist/pnotify.js"></script>
+    <script src="plugins/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="plugins/pnotify/dist/pnotify.nonblock.js"></script>
+
+    <!-- ================================================================================================== -->
+
+
+	<!-- BEGIN CORE ANGULARJS PLUGINS -->
+	<script src="js/angularjs/angular.min.js" type="text/javascript"></script>
+	<script src="js/angularjs/angular-route.js" type="text/javascript"></script>
+	<script src="js/angularjs/angular-animate.js" type="text/javascript"></script>
+	<script src="js/angularjs/ui-bootstrap-tpls-1.1.0.js" type="text/javascript"></script>
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/moment/angular-moment.min.js"></script>
+    <script src="plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script src="js/app-amo.js" type="text/javascript"></script>
+    <script src="js/controllers/sidebarCtrl.js"></script>
+    <script src="js/controllers/aggregatorCtrl.js"></script>
+	<script src="js/xls.js" type="text/javascript"></script>
+	<script src="js/excellentexport.js" type="text/javascript"></script>
+	<script src="js/FileSaver.js" type="text/javascript"></script>
+	<script src="js/jspdf.js" type="text/javascript"></script>
+	<script src="js/jspdf.debug.js" type="text/javascript"></script>
+	<script src="js/jspdf.plugin.table.js" type="text/javascript"></script>
+	<!-- END CORE ANGULARJS PLUGINS -->
+</body>
+</html>

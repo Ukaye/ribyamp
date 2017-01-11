@@ -1,0 +1,141 @@
+<!-- page content -->
+<div class="right_col" role="main" ng-cloak>
+    <!-- notifications -->
+    <div class="alert alert-success" role="alert"  ng-if="success">
+        <p> <strong>Notification!</strong> {{success}} </p>
+    </div>
+
+    <div class="alert alert-danger" role="alert" ng-if="error">
+        <p>  <strong>Oh snap!</strong> {{error}} </p>
+    </div>
+    <!-- top tiles -->
+    <div class="row top_tiles">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="#/aggregator">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-user-secret"></i></div>
+                    <div class="count" ng-bind="aggregators.length || 0"></div>
+                    <h3>Total Aggregators</h3>
+                    <p>Shows total no of registered aggregators.</p>
+                </div>
+            </a>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="#/agent">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-user-plus"></i></div>
+                    <div class="count" ng-bind="agents.length || 0"></div>
+                    <h3>Total Agents</h3>
+                    <p>Displays total number of agents.</p>
+                </div>
+            </a>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="#/member">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-users"></i></div>
+                    <div class="count" ng-bind="members.length || 0"></div>
+                    <h3>Total Beneficiaries</h3>
+                    <p>Displays total number of beneficiaries.</p>
+                </div>
+            </a>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a href="#/transaction">
+                <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-list-ol"></i></div>
+                    <div class="count">&#8358; {{Loans || 0}}</div>
+                    <h3>Total Loans</h3>
+                    <p>Shows the total amount of loan requested.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- /top tiles -->
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="dashboard_graph">
+
+                <div class="row x_title">
+                    <div class="col-md-6">
+                        <h3>Beneficiary Onboarding <small>Graph shows rate of registration.</small></h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
+                    <div style="width: 100%;">
+                        <div id="canvas_dahs" class="demo-placeholder" style="width: 100%; height:270px;"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete_member" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Delete confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <!--<div class="alert alert-success" role="alert" ng-if="success">-->
+                    <!--<strong>Notification!</strong> {{success}}-->
+                <!--</div>-->
+                <!--<div class="alert alert-danger" role="alert" ng-if="error">-->
+                    <!--<p>  <strong>Oh snap!</strong> {{error}} </p>-->
+                <!--</div>-->
+
+                <h3>Are you sure you want to delete?</h3>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="deleteGroup()">Delete</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="edit_field" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="newModalLabel">Edit Group Name</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="control-label col-md-6 col-sm-4 col-xs-12" for="supervisor-name">New Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="supervisor-name" class="form-control col-md-7 col-xs-12" ng-model="name" required>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="editField()">Confirm</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /page content -->
