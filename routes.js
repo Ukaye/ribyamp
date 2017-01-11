@@ -88,18 +88,18 @@ app.get('/update', function(req, res){
 
 
 
-app.post('/login', passport.authenticate('local-login', {
-  successRedirect : '/Admin',
-  failureRedirect : '/',
-  failureFlash : true
-}));
-
-
- app.post('/signup', passport.authenticate('local-signup', {
-   successRedirect : '/Admin',
-   failureRedirect : '/login',
-   failureFlash : true
- }));
+// app.post('/login', passport.authenticate('local-login', {
+//   successRedirect : '/Admin',
+//   failureRedirect : '/',
+//   failureFlash : true
+// }));
+//
+//
+//  app.post('/signup', passport.authenticate('local-signup', {
+//    successRedirect : '/Admin',
+//    failureRedirect : '/login',
+//    failureFlash : true
+//  }));
 
 
 app.get('/logout', function(req, res) {
