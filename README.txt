@@ -48,6 +48,7 @@ admin: [
     ]
 document: {
     id:,
+    path:,
     ext:(pdf|csv|txt),
     type:(MoU|CSV),
     filename:
