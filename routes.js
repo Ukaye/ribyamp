@@ -66,9 +66,20 @@ app.get('/member', function(req, res){
 
 
 
-app.post('/Add', function(req, res){
+app.get('/update', function(req, res){
 
+  user.insert({
+    id: Math.round((Math.random() * 10000)),
+    firstname: 'Prince',
+    lastname: 'Isaac',
+    email: 'prince@gmail.com',
+    phone: 09050484751, 
+    password: 'Des',
+    created_time: Date().now,
+    modified_time:Date().now
+    });
 
+  res.send('done');
 
 });
 
@@ -77,12 +88,9 @@ app.post('/Add', function(req, res){
 
 
 
-
-
-
 app.post('/login', passport.authenticate('local-login', {
   successRedirect : '/Admin',
-  failureRedirect : '/login',
+  failureRedirect : '/',
   failureFlash : true
 }));
 
