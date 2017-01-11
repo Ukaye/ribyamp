@@ -55,13 +55,6 @@ res.render('index');
 
 
 
-app.post('/Add', function(req, res){
-
-   
-
-});
-
-
 app.get('/update', function(req, res){
 
   user.insert({
