@@ -69,27 +69,27 @@ app.get('/agent', function(req, res){
 
 
 
-app.get('/succes', function(req, res){
+app.get('/success', function(req, res){
     
     switch (req.user.access) {
     
         case 1:
-            res.redirect('/superadmin');
+            res.redirect('/boi');
             break;
         case 2:
-              res.redirect('/superadmin');
+              res.redirect('/pmo');
             break;
         case 3:
-             res.redirect('/superadmin');
+             res.redirect('/amo');
               break;
         case 4:
-        res.redirect('/aggregator');
+            res.redirect('/aggregator');
              break;
         case 5:
-        res.redirect('/association');
+            res.redirect('/lead_aggregator');
               break;
          case 6:
-         res.redirect('/agent');
+            res.redirect('/agent');
               break;
       
        
