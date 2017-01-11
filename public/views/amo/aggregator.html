@@ -2,7 +2,7 @@ GroupFinanceMembers.html<!-- page content -->
 <div class="right_col" role="main">
     <div class="page-title">
         <div class="title_left">
-            <h3>Group List <small>List of all registered groups</small></h3>
+            <h3>Aggregator List <small>List of all registered aggregators</small></h3>
         </div>
     </div>
     <div class="row">
@@ -15,9 +15,9 @@ GroupFinanceMembers.html<!-- page content -->
                             <input type="text" ng-model="search" class="form-control" placeholder="Search">
                         </div>
                         <div class="col-lg-push-5 col-lg-3">
-                            <a href="javascript:;" class="btn btn-default btn-sm" data-toggle="modal" data-target="#add_group">
+                            <a href="javascript:;" class="btn btn-default btn-sm" data-toggle="modal" data-target="#add_aggregator">
                                 <i class="fa fa-plus"></i> Add New </a>
-                            <a href="javascript:;" class="btn btn-default btn-sm" download="Group List.xls" onclick="return ExcellentExport.excel(this, 'editable', 'List of Groups');">
+                            <a href="javascript:;" class="btn btn-default btn-sm" download="Group List.xls" onclick="return ExcellentExport.excel(this, 'editable', 'List of Aggregators');">
                                 <i class="fa fa-list"></i> Excel </a>
                             <a href="javascript:;" class="btn btn-default btn-sm" ng-click="generatefromtable()">
                                 <i class="fa fa-print"></i> PDF </a>
@@ -33,17 +33,21 @@ GroupFinanceMembers.html<!-- page content -->
                                 Id
                                 <span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
-                            <th ng-click="sort('name')">
-                                Name
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('company_name')">
+                                Company Name
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='company_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
-                            <th ng-click="sort('SuperAdmin')">
-                                SuperAdmin
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='SuperAdmin'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('type')">
+                                Type
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='type'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
-                            <th ng-click="sort('members')">
-                                Members
-                                <span class="glyphicon sort-icon" ng-show="sortKey=='members'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            <th ng-click="sort('region')">
+                                Region
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='region'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="sort('company_address')">
+                                Company Address
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='company_address'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                             </th>
                             <th>
                                 Actions
@@ -51,25 +55,22 @@ GroupFinanceMembers.html<!-- page content -->
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="odd gradeX" dir-paginate="group in groups|filter:search|itemsPerPage:pageSize">
+                        <tr class="odd gradeX" dir-paginate="aggregator in aggregators|filter:search|itemsPerPage:pageSize">
                             <td ng-bind="$index +1"></td>
-                            <td ng-bind="group.id"></td>
-                            <td ng-bind="group.name"></td>
-                            <td ng-bind="group.SuperAdmin"></td>
-                            <td ng-bind="group.members"></td>
+                            <td ng-bind="aggregator.id"></td>
+                            <td ng-bind="aggregator.company_name"></td>
+                            <td ng-bind="aggregator.type"></td>
+                            <td ng-bind="aggregator.region"></td>
+                            <td ng-bind="aggregator.company_address"></td>
 
                             <td>
-                                <a href="javascript:;" data-toggle="modal" ng-click="initEdit(group)" data-target="#edit_field">
+                                <a href="javascript:;" data-toggle="modal" ng-click="initEdit(aggregator)" data-target="#edit_field">
                                     <button class="btn-default btn-sm btn" ><i class="fa fa-pencil-square-o"></i>Edit</button>
                                 </a>
-
-                                <a href="#/Group/{{u.id}}">
-                                    <button class="btn-primary btn-sm btn" ><i class="fa fa-eye"></i> View Members</button>
-                                </a>
-                                <a href="javascript:;" data-toggle="modal" ng-click="initdeleteGroup(group.id, group, $index)" data-target="#delete_member">
+                                <a href="javascript:;" data-toggle="modal" ng-click="initdeleteGroup(aggregator.id, aggregator, $index)" data-target="#delete_member">
                                     <button class="btn-danger btn-sm btn" >
                                         <i class="fa fa-trash-o"></i> Delete
-                                        <img class="table-spinner group-{{$index}}" src="/images/spinner.gif" alt="Deleting" style="display: none;">
+                                        <img class="table-spinner aggregator-{{$index}}" src="/images/spinner.gif" alt="Deleting" style="display: none;">
                                     </button>
                                 </a>
 
@@ -90,7 +91,7 @@ GroupFinanceMembers.html<!-- page content -->
 </div>
 <!-- /page content -->
 <!-- BEGIN MODAL VIEWS -->
-<div id="add_group" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="add_aggregator" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -108,11 +109,11 @@ GroupFinanceMembers.html<!-- page content -->
                 </div>
 
                 <form class="form-inline">
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="group-name">Group Name <span class="required">*</span>
+                    <div class="form-aggregator">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="aggregator-name">Group Name <span class="required">*</span>
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" id="group-name" required="required" class="form-control col-md-7 col-xs-12" ng-model="name" required>
+                            <input type="text" id="aggregator-name" required="required" class="form-control col-md-7 col-xs-12" ng-model="name" required>
                         </div>
                     </div>
                 </form>
@@ -165,7 +166,7 @@ GroupFinanceMembers.html<!-- page content -->
             </div>
             <div class="modal-body">
                 <form class="form-inline">
-                    <div class="form-group">
+                    <div class="form-aggregator">
                         <label class="control-label col-md-6 col-sm-4 col-xs-12" for="supervisor-name">New Name<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
