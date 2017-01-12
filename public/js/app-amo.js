@@ -1,6 +1,4 @@
-var BAAMP = angular.module('BAAMP', ["ngRoute","angularMoment"]);
-
-
+var BAAMP = angular.module('BAAMP', ["ngRoute"]);
 
 BAAMP.config(['$routeProvider',  function ($routeProvider) {
 

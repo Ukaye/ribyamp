@@ -1,29 +1,38 @@
-<!-- top navigation -->
-<div class="top_nav">
-    <div class="nav_menu">
-        <nav>
-            <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="images/img.jpg" alt="">
-                        <span ng-cloak>{{user.Name}} {{user.LastName}}</span>
-                        <span class=" fa fa-angle-down"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="#/Settings"> Settings</a></li>
-                        <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+<!--header start-->
+<header class="header white-bg">
+    <div class="sidebar-toggle-box">
+        <i class="fa fa-bars"></i>
     </div>
-</div>
-<!-- /top navigation -->
+    <!--logo start-->
+    <a href="#/" class="logo">RIBY <span>AMPLIFIED</span></a>
+    <!--logo end-->
+    <div class="top-nav ">
+        <!--search & user info start-->
+        <ul class="nav pull-right top-menu">
+            <li>
+                <input type="text" class="form-control search" placeholder="Search">
+            </li>
+            <!-- user login dropdown start-->
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);">
+                    <img alt="" src="img/img.jpg" width="30">
+                    <span class="username" ng-cloak>{{user.firstname || 'Firstname'}} {{user.lastname || 'Lastname'}}</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu extended logout">
+                    <div class="log-arrow-up"></div>
+                    <li><a href="javascript:void(0);"><i class="fa fa-user"></i> Profile</a></li>
+                    <li><a href="#/settings"><i class="fa fa-cog"></i> Settings</a></li>
+                    <li><a href="/"><i class="fa fa-key"></i> Log Out</a></li>
+                    <li style="display: none"></li>
+                </ul>
+            </li>
+            <!-- user login dropdown end -->
+        </ul>
+        <!--search & user info end-->
+    </div>
+</header>
+<!--header end-->
 
-
-<!-- Custom Theme Scripts -->
-<script src="js/custom.min.js"></script>
+<!--common script for all pages-->
+<script src="js/common-scripts.js"></script>

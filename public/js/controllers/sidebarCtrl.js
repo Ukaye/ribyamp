@@ -8,23 +8,29 @@ BAAMP.controller('sidebarCtrl', function($scope, $http, $location, EndPoint) {
             .success(function(data) {
                 if (data.status = 1) {
                     $scope.user = data.data;
-                    switch ($scope.user.Role) {
-                        case "SUPERADMIN" : {
-                            $scope.superadmin = $scope.user;
-                            $("#FinanceMemberList").show();
-                            $("#FinanceGroupList").show();
+                    switch (parseInt($scope.user.access)) {
+                        case 1 : {
+                            $scope.boi = $scope.user;
                             break;
                         }
-                        case "AGENT" : {
+                        case 2 : {
+                            $scope.pmo = $scope.user;
+                            break;
+                        }
+                        case 3 : {
+                            $scope.amo = $scope.user;
+                            break;
+                        }
+                        case 4 : {
+                            $scope.lead_aggregator = $scope.user;
+                            break;
+                        }
+                        case 5 : {
+                            $scope.aggregator = $scope.user;
+                            break;
+                        }
+                        case 6 : {
                             $scope.agent = $scope.user;
-                            break;
-                        }
-                        case "Admin" : {
-                            $scope.admin = $scope.user;
-                            break;
-                        }
-                        case "MEMBER" : {
-                            $scope.member = $scope.user;
                             break;
                         }
                         default : {
@@ -34,15 +40,6 @@ BAAMP.controller('sidebarCtrl', function($scope, $http, $location, EndPoint) {
                             break;
                         }
                     }
-                    var user = $scope.user;
-                    new PNotify({
-                        title: "Welcome!",
-                        type: "success",
-                        text: "Hi, "+user.Name+" "+user.LastName+", You have logged in successfully.",
-                        addclass: 'dark',
-                        styling: 'bootstrap3',
-                        animate_speed: 'fast'
-                    });
                 }
             })
             .error(function(data) {
@@ -50,7 +47,7 @@ BAAMP.controller('sidebarCtrl', function($scope, $http, $location, EndPoint) {
             });
 
     };
-   // getUser();
+   getUser();
 
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();

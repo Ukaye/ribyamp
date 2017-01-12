@@ -82,10 +82,10 @@ app.get('/success', function(req, res){
              res.redirect('/amo');
               break;
         case 4:
-            res.redirect('/aggregator');
+            res.redirect('/lead_aggregator');
              break;
         case 5:
-            res.redirect('/lead_aggregator');
+            res.redirect('/aggregator');
               break;
          case 6:
             res.redirect('/agent');
@@ -96,6 +96,17 @@ app.get('/success', function(req, res){
     
 });
 
+
+app.get('/loggedInUser', function (req, res) {
+    user.findOne({email: req.user.email}, function (err,user) {
+        if (err){
+            res.status(400).json({status:2, message: "User does not exist!"});
+        }
+        if (user){
+            res.status(200).json({status:1, data:user});
+        }
+    })
+});
 
 
 app.get('/update', function(req, res){

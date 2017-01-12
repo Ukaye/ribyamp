@@ -1,141 +1,225 @@
-<!-- page content -->
-<div class="right_col" role="main" ng-cloak>
-    <!-- notifications -->
-    <div class="alert alert-success" role="alert"  ng-if="success">
-        <p> <strong>Notification!</strong> {{success}} </p>
-    </div>
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <!--state overview start-->
+        <div class="row state-overview">
+            <div class="col-lg-3 col-sm-6">
+                <a href="#/aggregator">
+                    <section class="panel">
+                        <div class="symbol terques">
+                            <i class="fa fa-eye-slash"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class="count" ng-bind="aggregators.length || 0"></h1>
+                            <p>Aggregators</p>
+                        </div>
+                    </section>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="#/agent">
+                    <section class="panel">
+                        <div class="symbol red">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count2" ng-bind="agents.length || 0"></h1>
+                            <p>Agents</p>
+                        </div>
+                    </section>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="#/association">
+                    <section class="panel">
+                        <div class="symbol yellow">
+                            <i class="fa fa-building-o"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count3" ng-bind="associations.length || 0"></h1>
+                            <p>Associations</p>
+                        </div>
+                    </section>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="#/member">
+                    <section class="panel">
+                        <div class="symbol blue">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count4" ng-bind="members.length || 0"></h1>
+                            <p>Beneficiaries</p>
+                        </div>
+                    </section>
+                </a>
+            </div>
+        </div>
+        <!--state overview end-->
 
-    <div class="alert alert-danger" role="alert" ng-if="error">
-        <p>  <strong>Oh snap!</strong> {{error}} </p>
-    </div>
-    <!-- top tiles -->
-    <div class="row top_tiles">
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="#/aggregator">
-                <div class="tile-stats">
-                    <div class="icon"><i class="fa fa-user-secret"></i></div>
-                    <div class="count" ng-bind="aggregators.length || 0"></div>
-                    <h3>Total Aggregators</h3>
-                    <p>Shows total no of registered aggregators.</p>
+        <div class="row">
+            <div class="col-lg-8">
+                <!--custom chart start-->
+                <div class="border-head">
+                    <h3>Beneficiary Onboarding Graph</h3>
                 </div>
-            </a>
-        </div>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="#/agent">
-                <div class="tile-stats">
-                    <div class="icon"><i class="fa fa-user-plus"></i></div>
-                    <div class="count" ng-bind="agents.length || 0"></div>
-                    <h3>Total Agents</h3>
-                    <p>Displays total number of agents.</p>
-                </div>
-            </a>
-        </div>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="#/member">
-                <div class="tile-stats">
-                    <div class="icon"><i class="fa fa-users"></i></div>
-                    <div class="count" ng-bind="members.length || 0"></div>
-                    <h3>Total Beneficiaries</h3>
-                    <p>Displays total number of beneficiaries.</p>
-                </div>
-            </a>
-        </div>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <a href="#/transaction">
-                <div class="tile-stats">
-                    <div class="icon"><i class="fa fa-list-ol"></i></div>
-                    <div class="count">&#8358; {{Loans || 0}}</div>
-                    <h3>Total Loans</h3>
-                    <p>Shows the total amount of loan requested.</p>
-                </div>
-            </a>
-        </div>
-    </div>
-    <!-- /top tiles -->
-
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="dashboard_graph">
-
-                <div class="row x_title">
-                    <div class="col-md-6">
-                        <h3>Beneficiary Onboarding <small>Graph shows rate of registration.</small></h3>
+                <div class="custom-bar-chart">
+                    <ul class="y-axis">
+                        <li><span>100</span></li>
+                        <li><span>80</span></li>
+                        <li><span>60</span></li>
+                        <li><span>40</span></li>
+                        <li><span>20</span></li>
+                        <li><span>0</span></li>
+                    </ul>
+                    <div class="bar">
+                        <div class="title">JAN</div>
+                        <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
                     </div>
-                    <div class="col-md-6">
-                        <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                    <div class="bar ">
+                        <div class="title">FEB</div>
+                        <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">MAR</div>
+                        <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">APR</div>
+                        <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
+                    </div>
+                    <div class="bar">
+                        <div class="title">MAY</div>
+                        <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">JUN</div>
+                        <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
+                    </div>
+                    <div class="bar">
+                        <div class="title">JUL</div>
+                        <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">AUG</div>
+                        <div class="value tooltips" data-original-title="45%" data-toggle="tooltip" data-placement="top">45%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">SEP</div>
+                        <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">OCT</div>
+                        <div class="value tooltips" data-original-title="42%" data-toggle="tooltip" data-placement="top">42%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">NOV</div>
+                        <div class="value tooltips" data-original-title="60%" data-toggle="tooltip" data-placement="top">60%</div>
+                    </div>
+                    <div class="bar ">
+                        <div class="title">DEC</div>
+                        <div class="value tooltips" data-original-title="90%" data-toggle="tooltip" data-placement="top">90%</div>
+                    </div>
+                </div>
+                <!--custom chart end-->
+            </div>
+            <div class="col-lg-4">
+                <!--new earning start-->
+                <div class="panel terques-chart">
+                    <div class="panel-body chart-texture">
+                        <div class="chart">
+                            <div class="heading">
+                                <span>Friday</span>
+                                <strong>$ 57,00 | 15%</strong>
+                            </div>
+                            <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
-                    <div style="width: 100%;">
-                        <div id="canvas_dahs" class="demo-placeholder" style="width: 100%; height:270px;"></div>
+                    <div class="chart-tittle">
+                        <span class="title">New Earning</span>
+                          <span class="value">
+                              <a href="#" class="active">Market</a>
+                              |
+                              <a href="#">Referal</a>
+                              |
+                              <a href="#">Online</a>
+                          </span>
                     </div>
                 </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
+                <!--new earning end-->
 
-<div id="delete_member" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Delete confirmation</h4>
-            </div>
-            <div class="modal-body">
-                <!--<div class="alert alert-success" role="alert" ng-if="success">-->
-                    <!--<strong>Notification!</strong> {{success}}-->
-                <!--</div>-->
-                <!--<div class="alert alert-danger" role="alert" ng-if="error">-->
-                    <!--<p>  <strong>Oh snap!</strong> {{error}} </p>-->
-                <!--</div>-->
-
-                <h3>Are you sure you want to delete?</h3>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="deleteGroup()">Delete</button>
-            </div>
-
-        </div>
-    </div>
-</div>
-<div id="edit_field" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="newModalLabel">Edit Group Name</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label class="control-label col-md-6 col-sm-4 col-xs-12" for="supervisor-name">New Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="supervisor-name" class="form-control col-md-7 col-xs-12" ng-model="name" required>
+                <!--total earning start-->
+                <div class="panel green-chart">
+                    <div class="panel-body">
+                        <div class="chart">
+                            <div class="heading">
+                                <span>June</span>
+                                <strong>23 Days | 65%</strong>
+                            </div>
+                            <div id="barchart"></div>
                         </div>
                     </div>
-                </form>
-
+                    <div class="chart-tittle">
+                        <span class="title">Total Earning</span>
+                        <span class="value">$, 76,54,678</span>
+                    </div>
+                </div>
+                <!--total earning end-->
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="editField()">Confirm</button>
-            </div>
-
         </div>
-    </div>
-</div>
-<!-- /page content -->
+
+        <div class="row">
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Overall Progress Tracker
+                    </header>
+                    <div class="panel-body">
+                        <div id="hero-graph" class="graph"></div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Plan benchmarks
+                    </header>
+                    <div class="panel-body">
+                        <div id="hero-bar" class="graph"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Quarterly statistics
+                    </header>
+                    <div class="panel-body">
+                        <div id="hero-area" class="graph"></div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-6">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Agent analytic pie chart
+                    </header>
+                    <div class="panel-body">
+                        <div id="hero-donut" class="graph"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+<!--main content end-->
+<script src="assets/morris.js-0.4.3/morris.min.js" type="text/javascript"></script>
+<script src="assets/morris.js-0.4.3/raphael-min.js" type="text/javascript"></script>
+<!--common script for all pages-->
+<script src="js/common-scripts.js"></script>
+<!-- script for this page only-->
+<script src="js/morris-script.js"></script>
