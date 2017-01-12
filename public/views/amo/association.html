@@ -16,11 +16,11 @@
                                     <input type="text" ng-model="search" class="form-control" placeholder="Search">
                                 </div>
                                 <div class="col-lg-push-5 col-lg-3">
-                                    <a href="javascript:;" class="btn btn-default btn-sm" data-toggle="modal" data-target="#add_association">
+                                    <a href="javascript:;" class="btn btn-success btn-sm" data-toggle="modal" data-target="#add_association">
                                         <i class="fa fa-plus"></i> Add New </a>
-                                    <a href="javascript:;" class="btn btn-default btn-sm" download="Group List.xls" onclick="return ExcellentExport.excel(this, 'editable', 'List of Associations');">
+                                    <a href="javascript:;" class="btn btn-info btn-sm" download="Group List.xls" onclick="return ExcellentExport.excel(this, 'editable', 'List of Associations');">
                                         <i class="fa fa-list"></i> Excel </a>
-                                    <a href="javascript:;" class="btn btn-default btn-sm" ng-click="generatefromtable()">
+                                    <a href="javascript:;" class="btn btn-info btn-sm" ng-click="generatefromtable()">
                                         <i class="fa fa-print"></i> PDF </a>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
 
                                     <td>
                                         <a href="javascript:;" data-toggle="modal" ng-click="initEdit(association)" data-target="#edit_field">
-                                            <button class="btn-default btn-sm btn" ><i class="fa fa-pencil-square-o"></i>Edit</button>
+                                            <button class="btn-primary btn-sm btn" ><i class="fa fa-pencil-square-o"></i>Edit</button>
                                         </a>
                                         <a href="#/document/{{association.mou.path}}">
                                             <button class="btn-primary btn-sm btn" ><i class="fa fa-eye"></i> View MoU</button>

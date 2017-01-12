@@ -34,12 +34,27 @@ BAAMP.controller('sidebarCtrl', function($scope, $http, $location, EndPoint) {
                             break;
                         }
                         default : {
-                            
                             window.location.href = EndPoint+"/logout";
-
                             break;
                         }
                     }
+                    setTimeout(function () {
+                        toastr.options = {
+                            closeButton: true,
+                            debug: false,
+                            positionClass: "toast-top-right",
+                            onclick: null,
+                            showDuration: 1000,
+                            hideDuration: 1000,
+                            timeOut: 5000,
+                            extendedTimeOut: 1000,
+                            showEasing: "swing",
+                            hideEasing: "linear",
+                            showMethod: "fadeIn",
+                            hideMethod: "fadeOut"
+                        };
+                        toastr.success("Logged in Successfully!","Welcome "+$scope.user.firstname+" "+$scope.user.lastname);
+                    }, 0);
                 }
             })
             .error(function(data) {

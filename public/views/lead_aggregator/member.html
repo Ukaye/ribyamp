@@ -15,11 +15,11 @@
                             <input type="text" ng-model="search" class="form-control" placeholder="Search">
                         </div>
                         <div class="col-lg-push-5 col-lg-3">
-                            <a href="javascript:;" class="btn btn-default btn-sm" data-toggle="modal" data-target="#add_member">
+                            <a href="javascript:;" class="btn btn-success btn-sm" data-toggle="modal" data-target="#add_member">
                                 <i class="fa fa-plus"></i> Add New </a>
-                            <a href="javascript:;" class="btn btn-default btn-sm" download="Member List.xls" onclick="return ExcellentExport.excel(this, 'editable', 'List of Members');">
+                            <a href="javascript:;" class="btn btn-info btn-sm" download="Member List.xls" onclick="return ExcellentExport.excel(this, 'editable', 'List of Members');">
                                 <i class="fa fa-list"></i> Excel </a>
-                            <a href="javascript:;" class="btn btn-default btn-sm" ng-click="generatefromtable()">
+                            <a href="javascript:;" class="btn btn-info btn-sm" ng-click="generatefromtable()">
                                 <i class="fa fa-print"></i> PDF </a>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                             <td>
 
                                 <a href="javascript:;" data-toggle="modal" ng-click="initEdit(member._id, member, $index,member)" data-target="#edit_field">
-                                    <button class="btn-default btn-sm btn" ><i class="fa fa-pencil-square-o"></i>Edit</button>
+                                    <button class="btn-primary btn-sm btn" ><i class="fa fa-pencil-square-o"></i>Edit</button>
                                 </a>
                                 <!--<a href="#/Transaction/{{member._id}}"><span class="btn btn-sm btn-success"><i class="fa fa-eye"></i> View Transactions </span></a>-->
                                 <a href="javascript:;" data-toggle="modal" ng-click="initdeleteMember(member.Id, member, $index)" data-target="#delete_member">
